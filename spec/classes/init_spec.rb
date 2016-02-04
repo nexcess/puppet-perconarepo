@@ -102,7 +102,7 @@ describe 'perconarepo' do
 
         context 'custom parameters' do
           let(:params) do
-            { :percona_release_baseurl  => 'http://mirror.nexcess.net/percona/release/$releasever/RPMS/$basearch',
+            { :percona_url_prefix       => 'http://mirror.nexcess.net/percona',
               :percona_release_descr    => 'Mirror of the Percona-Release YUM repository',
               :percona_release_enabled  => false,
               :percona_release_gpgcheck => false,
