@@ -1,5 +1,7 @@
 # perconarepo
 
+[![Travis](https://img.shields.io/travis/nexcess/puppet-perconarepo.svg)](https://travis-ci.org/nexcess/puppet-perconarepo)
+
 ## Copyright
 
 Copyright 2016 [Nexcess](https://www.nexcess.net/)
