@@ -106,7 +106,7 @@ describe 'perconarepo' do
               :percona_release_descr    => 'Mirror of the Percona-Release YUM repository',
               :percona_release_enabled  => false,
               :percona_release_gpgcheck => false,
-              :percona_release_gpgkey   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
+              :percona_gpgkey           => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
       
               :percona_testing_enabled        => true,
               :percona_testing_noarch_enabled => true,
