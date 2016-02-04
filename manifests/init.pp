@@ -1,5 +1,6 @@
 class perconarepo (
-  $percona_gpgkey = $perconarepo::params::percona_gpgkey,
+  $percona_gpgkey     = $perconarepo::params::percona_gpgkey,
+  $percona_url_prefix = 'http://repo.percona.com',
 
   # release repos
   $percona_release_baseurl  = $perconarepo::params::percona_release_baseurl,
@@ -51,12 +52,12 @@ class perconarepo (
 ) inherits  perconarepo::params {
 
   validate_string($percona_gpgkey)
-  
+  validate_string($percona_url_prefix)
+
   validate_string($percona_release_baseurl)
   validate_string($percona_release_descr)
   validate_bool($percona_release_enabled)
   validate_bool($percona_release_gpgcheck)
-
 
   validate_string($percona_release_noarch_baseurl)
   validate_string($percona_release_noarch_descr)
@@ -72,7 +73,7 @@ class perconarepo (
   if $::operatingsystem in ['RedHat', 'CentOS'] {
 
     yumrepo {'percona-release':
-      baseurl  => $percona_release_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_release_baseurl}",
       descr    => $percona_release_descr,
       enabled  => bool2num($percona_release_enabled),
       gpgcheck => bool2num($percona_release_gpgcheck),
@@ -80,7 +81,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-release-noarch':
-      baseurl  => $percona_release_noarch_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_release_noarch_baseurl}",
       descr    => $percona_release_noarch_descr,
       enabled  => bool2num($percona_release_noarch_enabled),
       gpgcheck => bool2num($percona_release_noarch_gpgcheck),
@@ -88,7 +89,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-release-source':
-      baseurl  => $percona_release_source_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_release_source_baseurl}",
       descr    => $percona_release_source_descr,
       enabled  => bool2num($percona_release_source_enabled),
       gpgcheck => bool2num($percona_release_source_gpgcheck),
@@ -96,7 +97,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-testing':
-      baseurl  => $percona_testing_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_testing_baseurl}",
       descr    => $percona_testing_descr,
       enabled  => bool2num($percona_testing_enabled),
       gpgcheck => bool2num($percona_testing_gpgcheck),
@@ -104,7 +105,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-testing-noarch':
-      baseurl  => $percona_testing_noarch_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_testing_noarch_baseurl}",
       descr    => $percona_testing_noarch_descr,
       enabled  => bool2num($percona_testing_noarch_enabled),
       gpgcheck => bool2num($percona_testing_noarch_gpgcheck),
@@ -112,7 +113,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-testing-source':
-      baseurl  => $percona_testing_source_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_testing_source_baseurl}",
       descr    => $percona_testing_source_descr,
       enabled  => bool2num($percona_testing_source_enabled),
       gpgcheck => bool2num($percona_testing_source_gpgcheck),
@@ -120,7 +121,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-experimental':
-      baseurl  => $percona_experimental_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_experimental_baseurl}",
       descr    => $percona_experimental_descr,
       enabled  => bool2num($percona_experimental_enabled),
       gpgcheck => bool2num($percona_experimental_gpgcheck),
@@ -128,7 +129,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-experimental-noarch':
-      baseurl  => $percona_experimental_noarch_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_experimental_noarch_baseurl}",
       descr    => $percona_experimental_noarch_descr,
       enabled  => bool2num($percona_experimental_noarch_enabled),
       gpgcheck => bool2num($percona_experimental_noarch_gpgcheck),
@@ -136,7 +137,7 @@ class perconarepo (
     }
 
     yumrepo {'percona-experimental-source':
-      baseurl  => $percona_experimental_source_baseurl,
+      baseurl  => "${percona_url_prefix}${percona_experimental_source_baseurl}",
       descr    => $percona_experimental_source_descr,
       enabled  => bool2num($percona_experimental_source_enabled),
       gpgcheck => bool2num($percona_experimental_source_gpgcheck),
