@@ -11,8 +11,6 @@ describe 'perconarepo' do
         it { should contain_class('perconarepo') }
         it { should contain_class('perconarepo::params') }
 
-        it { should contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-Percona') }
-
         # release repos
         it do
           should contain_yumrepo('percona-release').with(
@@ -20,7 +18,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Release YUM repository - $basearch',
             'enabled'  => '1',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -29,7 +27,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Release YUM repository - noarch',
             'enabled'  => '1',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -38,7 +36,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Release YUM repository - Source packages',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
 
@@ -49,7 +47,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Testing YUM repository - $basearch',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -58,7 +56,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Testing YUM repository - noarch',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -67,7 +65,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Testing YUM repository - Source packages',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
 
@@ -78,7 +76,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Experimental YUM repository - $basearch',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -87,7 +85,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Experimental YUM repository - noarch',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
         it do
@@ -96,7 +94,7 @@ describe 'perconarepo' do
             'descr'    => 'Percona-Experimental YUM repository - Source packages',
             'enabled'  => '0',
             'gpgcheck' => '1',
-            'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona',
+            'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
           )
         end
 
@@ -106,8 +104,6 @@ describe 'perconarepo' do
               :percona_release_descr    => 'Mirror of the Percona-Release YUM repository',
               :percona_release_enabled  => false,
               :percona_release_gpgcheck => false,
-              :percona_gpgkey           => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
-      
               :percona_testing_enabled        => true,
               :percona_testing_noarch_enabled => true,
             }
@@ -118,7 +114,6 @@ describe 'perconarepo' do
               'descr'    => 'Mirror of the Percona-Release YUM repository',
               'enabled'  => '0',
               'gpgcheck' => '0',
-              'gpgkey'   => 'https://www.percona.com/downloads/RPM-GPG-KEY-percona',
             )
           end
 
