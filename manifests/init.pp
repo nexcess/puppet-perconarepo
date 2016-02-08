@@ -144,13 +144,11 @@ class perconarepo (
       gpgkey   => $percona_gpgkey,
     }
 
-    file {'/etc/pki/rpm-gpg/RPM-GPG-KEY-Percona':
+    rpmkey { 'CD2EFD2A':
       ensure => 'present',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => 'puppet:///modules/perconarepo/RPM-GPG-KEY-Percona',
+      source => $percona_gpgkey,
     }
+
   }
   else {
     fail ("operating system ${::operatingsystem} is not supported by perconarepo")

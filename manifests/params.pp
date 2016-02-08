@@ -1,5 +1,5 @@
 class perconarepo::params {
-  $percona_gpgkey = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Percona'
+  $percona_gpgkey = 'https://www.percona.com/downloads/RPM-GPG-KEY-percona'
 
   # the baseurl parameters are combined with $percona_url_prefix in init.pp to
   # form the url to download packages

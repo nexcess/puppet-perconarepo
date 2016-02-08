@@ -1,5 +1,6 @@
 fixtures:
   repositories:
     "stdlib": "git://github.com/puppetlabs/puppetlabs-stdlib.git"
+    "rpmkey": "git://github.com/stschulte/puppet-rpmkey.git"
   symlinks:
     perconarepo: "#{source_dir}"
